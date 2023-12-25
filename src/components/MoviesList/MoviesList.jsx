@@ -7,7 +7,7 @@ import { Container, ListOfFilm, Title } from './MoviesListStyled';
 const FilmList = () => {
   const [films, setFilms] = useState([]);
   const [error, setError] = useState(null);
-  const location = useLocation(); //для отримання шляху з якого переходимо для передачи через props
+  const location = useLocation();
 
   useEffect(() => {
     const fetchFilms = async () => {
@@ -27,7 +27,7 @@ const FilmList = () => {
     <Container>
       <Title>Trending today</Title>
 
-      {error && <p>Вибачте, але щось пішло не так :(</p>}
+      {error && <p>Вибачте, але щось пішло не так :</p>}
 
       <ListOfFilm>
         {films.map(film => (
