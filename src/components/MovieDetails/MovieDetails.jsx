@@ -26,7 +26,7 @@ import defaultPicture from '../Cast/Avatar-pict.png';
 const FilmDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef(location.state ?? '/');
   const [film, setFilms] = useState([]);
   const [genres, setGenres] = useState([]);
   const [date, setDate] = useState('');
