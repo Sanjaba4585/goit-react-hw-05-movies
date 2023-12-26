@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 import {
   Link,
   NavLink,
@@ -25,7 +26,7 @@ import defaultPicture from '../Cast/Avatar-pict.png';
 const FilmDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  // const backLinkRef = useRef(location.state ?? '/');
+  const backLinkRef = useRef(location.state ?? '/');
   const [film, setFilms] = useState([]);
   const [genres, setGenres] = useState([]);
   const [date, setDate] = useState('');
@@ -66,7 +67,7 @@ const FilmDetails = () => {
 
   return (
     <Container>
-      <NavLink to={location.state ?? '/'}>Back</NavLink>
+      <NavLink to={backLinkRef.current}>Back</NavLink>
 
       {status === 'rejected' && <p>{error}</p>}
 
