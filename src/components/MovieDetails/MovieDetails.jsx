@@ -26,7 +26,7 @@ import defaultPicture from '../Cast/Avatar-pict.png';
 const FilmDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(location.state ?? '/');
+  const backLinkRef = useRef(location?.state?.from ?? '/');
   const [film, setFilms] = useState([]);
   const [genres, setGenres] = useState([]);
   const [date, setDate] = useState('');
@@ -67,7 +67,7 @@ const FilmDetails = () => {
 
   return (
     <Container>
-      <NavLink to={backLinkRef.current}>Back</NavLink>
+      <NavLink to={backLinkRef}>Back</NavLink>
 
       {status === 'rejected' && <p>{error}</p>}
 
